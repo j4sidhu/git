@@ -1,0 +1,40 @@
+git config --global user.name "Joban"
+git config --global user.email "Joban@joban.com"
+git config --global core.editor "subl -n -w"
+
+git status -s # short status
+
+git log --oneline -2
+
+~ or ~1 # parent
+~~ or ~2 # parent's parent
+
+^ or ^1 # first parent of the merge commit
+^2 # second parent of a merge commit
+^^ # first parent's first parent
+
+git tag v0.1 [<commit>] # lightweight tag, <commit> defaults of the current commit if not provided
+git tag -a -m "info about this tag" v0.1 [<commit>] # annotated tag
+
+git push <remote> <tagname> # push a single tag to the remote repo
+git push <remote> --tags # push all tags to the remote repo
+
+git reflog # returns a local list of recent HEAD commits. Useful in undoing an acceidental branch delete
+
+git log --oneline --graph --all
+
+git log --all --oneline --graph # view the combined log of all local and tracking branches
+
+git merge --no-ff feature2 # Force perform a merge commit instead of a fast forward commit
+
+git branch --all # display local and tracking branch names
+
+git checkout featureX, git rebase master # master is the upstream branch here, changes the parent of the currently checked out branch to <upstream>
+
+git commit --amend -m "new commit message" # if there is a typo in your previous commit, use this command
+
+git add fileA.txt, git commit --amend --no-edit # If you forget to add a file to the commit, use this command. The --no-edit flag means use the same previous commit message or you can define a new commit message
+
+git rebase -i [commit's SHA-1] # all of the commits children can be modified with the interactive rebase
+
+git checkout master, git merge --squash featureX, git commit, git branch -d featureX # Squash featureX branch into the master branch	
